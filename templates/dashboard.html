@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Deepfake Analyzer</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="nav-container">
+        <ul class="nav-menu">
+            <li class="nav-item" data-section="about">About</li>
+            <li class="nav-item" data-section="morphing">Morphing</li>
+            <li class="nav-item" data-section="future">Future Development</li>
+        </ul>
+    </nav>
+
+    <!-- Main Dashboard -->
+    <div class="dashboard-container">
+        <h1>Deepfake Analyzer</h1>
+        
+        <div class="upload-section">
+            <input type="file" id="videoFile" class="file-input" accept="video/*">
+            <div class="button-group">
+                <label for="videoFile" class="upload-btn">Choose Video</label>
+                <button id="restartBtn" class="restart-btn" style="display: none;">Start New Analysis</button>
+            </div>
+            
+            <div class="preview-container">
+                <video id="videoPreview" class="video-preview" controls autoplay muted loop></video>
+                <img id="previewImage" class="preview-image" alt="Analysis Frame">
+            </div>
+
+            <button id="analyzeBtn" class="upload-btn" style="display: none;">Analyze Video</button>
+        </div>
+
+        <div class="loading" id="loading">
+            <div class="loading-text">Analyzing video... Please wait...</div>
+        </div>
+
+        <div class="result-section" id="result"></div>
+    </div>
+
+    <!-- Content Sections -->
+    <section id="about" class="content-section">
+        <h2>About Deepfake Detection</h2>
+        <p>Our deepfake detection system uses advanced AI algorithms to analyze videos and determine if they have been manipulated. The system looks for subtle inconsistencies in facial movements, lighting, and other visual artifacts that are typically present in deepfake videos.</p>
+        <p>The technology combines computer vision and deep learning to provide accurate results in real-time, helping users identify potentially manipulated content.</p>
+    </section>
+
+    <section id="morphing" class="content-section">
+        <h2>Video Morphing Technology</h2>
+        <p>Video morphing is a sophisticated technique that involves transforming one image or video into another through a seamless transition. While this technology has legitimate uses in film and entertainment, it can also be misused to create deceptive content.</p>
+        <p>Our detection system specifically looks for signs of morphing techniques, including:</p>
+        <ul>
+            <li>Facial feature inconsistencies</li>
+            <li>Unnatural movement patterns</li>
+            <li>Lighting and texture anomalies</li>
+            <li>Audio-visual synchronization issues</li>
+        </ul>
+    </section>
+
+    <section id="future" class="content-section">
+        <h2>Future Developments</h2>
+        <p>We are continuously working to improve our deepfake detection technology. Upcoming features include:</p>
+        <ul>
+            <li>Real-time video analysis</li>
+            <li>Enhanced accuracy through multi-model analysis</li>
+            <li>Support for longer video sequences</li>
+            <li>Detailed analysis reports</li>
+            <li>Integration with social media platforms</li>
+        </ul>
+    </section>
+
+    <script src="{{ url_for('static', filename='dashboard.js') }}"></script>
+</body>
+</html>
